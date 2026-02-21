@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Daily Upload Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- ░░ BACKGROUND GRID ░░ -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow"  aria-hidden="true"></div>
+
+  <!-- ░░ HEADER ░░ -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">▶</div>
+        <div>
+          <div class="brand-title">YouTube Daily Upload Tracker</div>
+          <div class="brand-sub">Tamil Market Channels · Personal Dashboard</div>
+        </div>
+      </div>
+      <div class="header-right" id="last-checked-wrap" style="display:none">
+        <span class="mono muted">Last checked:</span>
+        <span class="mono" id="last-checked-time">—</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ░░ MAIN ░░ -->
+  <main>
+
+    <!-- Hero / CTA -->
+    <section class="hero">
+      <p class="hero-date mono" id="today-date">—</p>
+      <h1 class="hero-title">Check today's<br><em>market uploads</em></h1>
+      <p class="hero-desc">
+        Instantly checks 5 Tamil finance channels for videos<br>
+        uploaded after midnight IST today.
+      </p>
+      <button class="check-btn" id="check-btn" onclick="runCheck()">
+        <span class="check-btn-icon" id="btn-icon">↺</span>
+        <span id="btn-label">Check Updates</span>
+      </button>
+    </section>
+
+    <!-- Channel pills (always visible) -->
+    <div class="channel-pills">
+      <div class="pill" style="--c:#f59e0b">Money Pechu</div>
+      <div class="pill" style="--c:#10b981">VJ Dhana</div>
+      <div class="pill" style="--c:#8b5cf6">Arjun Pangu Market</div>
+      <div class="pill" style="--c:#ef4444">Rupee Driver</div>
+      <div class="pill" style="--c:#3b82f6">Tamil Selvan</div>
+    </div>
+
+    <!-- Results area -->
+    <div id="results" style="display:none">
+
+      <!-- Summary bar -->
+      <div class="summary-bar">
+        <div class="summary-item">
+          <span class="summary-num" id="s-total">0</span>
+          <span class="summary-label mono">videos today</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="summary-num" id="s-active">0</span>
+          <span class="summary-label mono">active channels</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="summary-num" id="s-silent">0</span>
+          <span class="summary-label mono">no uploads</span>
+        </div>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="channels-grid" id="channels-grid"></div>
+
+    </div>
+
+    <!-- Error state -->
+    <div id="error-box" style="display:none" class="error-box">
+      <div class="error-icon">⚠</div>
+      <div class="error-title">Something went wrong</div>
+      <div class="error-msg mono" id="error-msg"></div>
+    </div>
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="mono">
+    Private dashboard · API key secured on backend · YouTube Data API v3
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
